@@ -1,24 +1,19 @@
-console.log('hello6')
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
+const {sequelize} = require('./models')
+const config = require('./config/config')
 
 const app = express()
 app.use(morgan('combine'))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/status', (req, res) => {
-  res.send({
-    message: 'hello world!'
-  })
-})
+require('./routes')(app)
 
-app.post('/register', (req, res) => {
-  res.send({
-    message: `Howdy ${req.body.email}! Your user was registered!`
+sequelize.sync()
+  .then(() => {
+    app.listen(config.port || 8081)
+    console.log(`Server started at http://localhost:${config.port}`)
   })
-})
-
-app.listen(process.env.PORT || 8081)

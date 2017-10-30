@@ -1,6 +1,6 @@
 # vue-express
 
-> A Vue.js project ando node express backend
+> A Vue.js project and node express backend
 
 ## Build Setup Client
 
