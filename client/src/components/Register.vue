@@ -16,7 +16,7 @@ export default {
   name: 'Register',
   data () {
     return {
-      email: 'abc',
+      email: '',
       password: ''
     }
   },
