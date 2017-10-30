@@ -5,7 +5,7 @@
     <div><input type="email" name="email" v-model="email" placeholder="email address"/></div>
     <div><input type="password" name="password" v-model="password" placeholder="password"/></div>
     <button @click="register">Register</button>
-
+    
   </div>
 </template>
 
